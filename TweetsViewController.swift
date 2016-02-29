@@ -13,6 +13,8 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var tableView: UITableView!
     
     var tweets: [Tweet]!
+    var user: User!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
@@ -82,14 +84,44 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        print("TRuuueeee")
+        if(segue.destinationViewController is TweetViewController){
+            print("tweet view controller")
+
+            let cell = sender as! UITableViewCell
+            let indexPath = tableView.indexPathForCell(cell)
+            let tweet = tweets![indexPath!.row]
+            let tweetViewController = segue.destinationViewController as! TweetViewController
+            tweetViewController.tweet = tweet
+            
+            
+        }
+        else if(segue.destinationViewController is ComposeViewController){
+            print("compose view controller")
+            
+            
+        }
+        else if(segue.destinationViewController is profileViewController){
+            print("profile view controller")
+        }
+        
+        
+       /* let cell = sender as! UITableViewCell
+        let indexPath = tableView.indexPathForCell(cell)
+        let business = filteredBusinesses![indexPath!.row]
+        let mapViewController = segue.destinationViewController as! MapViewController
+        mapViewController.business = business*/
+        
+        
+        
     }
-    */
+
 
 }
