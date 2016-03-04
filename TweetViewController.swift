@@ -36,6 +36,7 @@ class TweetViewController: UIViewController {
         profileImageView.setImageWithURL(tweet!.profileUrl!)
         
         dateLabel.text = tweet?.age
+        
 
         
 

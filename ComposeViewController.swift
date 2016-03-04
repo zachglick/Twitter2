@@ -10,6 +10,8 @@ import UIKit
 
 class ComposeViewController: UIViewController {
 
+    @IBOutlet weak var textField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,6 +24,9 @@ class ComposeViewController: UIViewController {
     }
     
     @IBAction func onTweetButton(sender: AnyObject) {
+        
+        print("TEXT \(textField.text)")
+        TwitterClient.sharedInstance.tweet(textField.text!)
 self.dismissViewControllerAnimated(false, completion: nil)    }
 
     /*

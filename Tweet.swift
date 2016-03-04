@@ -18,6 +18,7 @@ class Tweet: NSObject {
     var screenname: NSString?
     var profileUrl: NSURL?
     var age: String?
+    var id: String?
     
     
     
@@ -27,6 +28,7 @@ class Tweet: NSObject {
         text = dictionary["text"] as? String
         retweetCount = (dictionary["retweet_count"] as? Int) ?? 0
         favoritesCount = (dictionary["favorites_count"] as? Int) ?? 0
+        id = dictionary["id_str"] as? String
         let timestampString = dictionary["created_at"] as? String
       
         if let timestampString = timestampString{

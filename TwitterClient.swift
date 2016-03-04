@@ -33,6 +33,47 @@ class TwitterClient: BDBOAuth1SessionManager {
     }
     
     
+    func retweet(id: String) {
+        
+        POST("https://api.twitter.com/1.1/statuses/retweet/\(id).json", parameters: nil, progress: nil, success: { (task:NSURLSessionDataTask, response: AnyObject?) -> Void in
+
+            print("ID \(id)")
+            
+            
+            
+            }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
+                
+                print("Couldn't retweet")
+        })
+    }
+    
+    
+    func favorite(id: String) {
+        
+        POST("https://api.twitter.com/1.1/favorites/create.json?id=\(id)", parameters: nil, progress: nil, success: { (task:NSURLSessionDataTask, response: AnyObject?) -> Void in
+            print("ID \(id)")
+
+            }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
+                print("Couldn't favorite")
+
+                
+        })
+    }
+    
+    
+    func tweet(text: String) {
+        
+        POST("https://api.twitter.com/1.1/statuses/update.json", parameters: ["status":text], progress: nil, success: { (task:NSURLSessionDataTask, response: AnyObject?) -> Void in
+            print("ID \(text)")
+            
+            }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
+                print("Couldn't tweet")
+                
+                
+        })
+    }
+    
+    
     func homeTimeline(success: ([Tweet]) -> (), failure: (NSError) -> ()){
         
         GET("1.1/statuses/home_timeline.json", parameters: nil, progress: nil, success: { (task:NSURLSessionDataTask, response: AnyObject?) -> Void in

@@ -232,6 +232,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="textField" destination="k7g-fJ-MPb" id="Ko1-iu-UgU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8v2-J9-zxV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -69,6 +69,9 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         cell.ageLabel.text = tweet.age
         cell.retweetLabel.text = String(tweet.retweetCount)
         cell.favoriteLabel.text = String(tweet.favoritesCount)
+        cell.tweetId = tweet.id
+        
+        
         //cell.profileImageView.backgroundColor = UIColor.blackColor()
         
         
@@ -91,7 +94,6 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        print("TRuuueeee")
         if(segue.destinationViewController is TweetViewController){
             print("tweet view controller")
 

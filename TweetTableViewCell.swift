@@ -18,6 +18,8 @@ class TweetTableViewCell: UITableViewCell {
     @IBOutlet weak var retweetLabel: UILabel!
     @IBOutlet weak var favoriteLabel: UILabel!
     
+    var tweetId : String?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -33,6 +35,7 @@ class TweetTableViewCell: UITableViewCell {
         var original = Int(retweetLabel.text!)
         original = original! + 1
         retweetLabel.text = String(original!)
+        TwitterClient.sharedInstance.retweet(tweetId!)
         
     }
     
@@ -40,7 +43,8 @@ class TweetTableViewCell: UITableViewCell {
         var original = Int(favoriteLabel.text!)
         original = original! + 1
         favoriteLabel.text = String(original!)
-        
+        TwitterClient.sharedInstance.favorite(tweetId!)
+
         
     }
 
