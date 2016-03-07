@@ -375,10 +375,16 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9dH-ay-ifm">
                                 <rect key="frame" x="15" y="249" width="56" height="30"/>
                                 <state key="normal" title="Retweet"/>
+                                <connections>
+                                    <action selector="onRetweet:" destination="YSw-hH-GiI" eventType="touchUpInside" id="qtz-63-Qic"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uew-eq-fVk">
                                 <rect key="frame" x="113" y="249" width="55" height="30"/>
                                 <state key="normal" title="Favorite"/>
+                                <connections>
+                                    <action selector="onFavorite:" destination="YSw-hH-GiI" eventType="touchUpInside" id="os4-nh-REb"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

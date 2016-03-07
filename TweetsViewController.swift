@@ -22,21 +22,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
 
-        TwitterClient.sharedInstance.homeTimeline({ (tweets:[Tweet]) -> () in
-            self.tweets = tweets
-            for tweet in tweets{
-                print(tweet.name)
-                print(tweet.screenname)
-                print(tweet.text)
-                print(tweet.profileUrl)
-                print(tweet.age)
-                print("\n")
-            }
-            self.tableView.reloadData()
-
-            }) { (error:NSError) -> () in
-                print(error.localizedDescription)
-        }
+       loadTweets()
 
         // Do any additional setup after loading the view.
     }
@@ -79,7 +65,31 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         
         return cell
         
+        
+        
     }
+    
+    
+    func loadTweets(){
+        TwitterClient.sharedInstance.homeTimeline({ (tweets:[Tweet]) -> () in
+            self.tweets = tweets
+            for tweet in tweets{
+                print(tweet.name)
+                print(tweet.screenname)
+                print(tweet.text)
+                print(tweet.profileUrl)
+                print(tweet.age)
+                print("\n")
+            }
+            self.tableView.reloadData()
+            
+            }) { (error:NSError) -> () in
+                print(error.localizedDescription)
+        }
+
+    }
+    
+    
     
     @IBAction func onLogoutButton(sender: AnyObject) {
         
@@ -106,7 +116,11 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             
         }
         else if(segue.destinationViewController is ComposeViewController){
+            
+            let composeViewController = segue.destinationViewController as! ComposeViewController
+            composeViewController.homeScreen = self
             print("compose view controller")
+            
             
             
         }
@@ -124,6 +138,8 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         
         
     }
+    
+    
 
 
 }

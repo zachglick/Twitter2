@@ -12,6 +12,7 @@ class ComposeViewController: UIViewController {
 
     @IBOutlet weak var textField: UITextField!
     
+    var homeScreen : TweetsViewController?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,6 +28,9 @@ class ComposeViewController: UIViewController {
         
         print("TEXT \(textField.text)")
         TwitterClient.sharedInstance.tweet(textField.text!)
+
+        homeScreen!.loadTweets()
+        
 self.dismissViewControllerAnimated(false, completion: nil)    }
 
     /*

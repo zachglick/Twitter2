@@ -48,6 +48,16 @@ class TweetViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onRetweet(sender: AnyObject) {
+        TwitterClient.sharedInstance.retweet((tweet?.id)!)
+        self.retweetLabel.text = String((tweet?.retweetCount)!+1)
+        
+    }
+    
+    @IBAction func onFavorite(sender: AnyObject) {
+        TwitterClient.sharedInstance.favorite((tweet?.id)!)
+        self.favoriteLabel.text = String((tweet?.favoritesCount)!+1)
+    }
 
     /*
     // MARK: - Navigation
